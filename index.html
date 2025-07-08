@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #fff5f7;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, #ff6b9a 0%, #ff8fab 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #ff8fab;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 143, 171, 0.2);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .btn-transparent {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-transparent:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full z-50 bg-white bg-opacity-80 backdrop-filter backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">
+                    <span class="text-gradient">Ipeleng Selina Sithole</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-pink-400">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-pink-400">About</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-pink-400">Projects</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-pink-400">Skills</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-pink-400">Contact</a>
+                </nav>
+                <button class="md:hidden text-pink-400 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen pt-24 flex items-center px-6 fade-in">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-gradient">Ipeleng</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-light mb-6">Information Systems Student | Future Digital Operations Specialist</h2>
+                    <p class="text-gray-600 mb-8 md:text-lg max-w-lg">I Help businesses improve operations using digital tools, smart systems, and data driven decisions - without writing code.</p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="btn-transparent px-6 py-3 rounded-full text-pink-500 font-medium shadow-sm">View My Work</a>
+                        <a href="#contact" class="bg-gradient-to-r from-pink-400 to-pink-500 px-6 py-3 rounded-full text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300">Contact Me</a>
+                    </div>
+                    <div class="mt-10 flex space-x-4">
+                        <a href="http://www.linkedin.com/in/ipeleng-sithole-32a239254" class="w-10 h-10 rounded-full flex items-center justify-center btn-transparent text-pink-500"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-pink-100 to-pink-200 overflow-hidden shadow-xl floating">
+                            <img src="p2.jpg" alt="Profile" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 bg-white p-3 rounded-lg shadow-lg">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-500">
+                                    <i class="fas fa-code text-xl"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="font-bold text-gray-800">3 Months</p>
+                                    <p class="text-xs text-gray-500">Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="text-gradient">Me</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-pink-400 to-pink-200 mx-auto rounded-full"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <div class="relative group">
+                        <div class="w-64 h-80 md:w-72 md:h-96 bg-pink-100 rounded-xl overflow-hidden shadow-lg relative z-10 group-hover:shadow-xl transition-all duration-300">
+                            <img src="Portrait 2 .jpg" alt="About Me" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -left-5 w-64 h-80 md:w-72 md:h-96 border-2 border-pink-200 rounded-xl group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-300"></div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-16">
+                    <h3 class="text-2xl font-bold mb-6">Who am I?</h3>
+                    <p class="text-gray-600 mb-6">I’m a second-year BCom student majoring in Information Systems, passionate about helping businesses run smarter through digital tools.
+
+With a strong interest in operations, business systems, and digital transformation, I’m currently completing certifications in Business Process Management, ERP Systems, and CRM platforms. I enjoy working on projects that explore how businesses can use simple tools (like Excel, ERP demos, dashboards, or CRM systems) to improve performance.
+
+I'm actively seeking internship opportunities in digital operations, systems analysis, or tech-enabled business environments.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-pink-500 mb-2"><i class="fas fa-database mr-2"></i>Informations Systems Knowledge</h4>
+                            <p class="text-gray-600"> Understanding of systems analysis, data management, and IT solutions that support business goals and decision-making.</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-pink-500 mb-2"><i class="fas fa-cogs mr-2"></i>Digital Operations & Optimization</h4>
+                            <p class="text-gray-600"> Focused on optimizing business processes through digital tools, automation, and data-driven decision-making strategies.</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-transparent px-6 py-3 rounded-full text-pink-500 font-medium inline-flex items-center">
+                        <span>Download CV</span>
+                        <i class="fas fa-download ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-gradient">Projects</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-pink-400 to-pink-200 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="Clothing Store.jpg" alt="Project 1" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">ERP Simulation for Clothing Store </h3>
+                        <p class="text-gray-600 mb-4">Simulated the Full ERP workflow for a retail clothing store. This project demonstrates my skills in business process mapping, ERP systems, and business data analysis </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-3 py-1 bg-pink-100 text-pink-600 rounded-full">Odoo</span>
+                        </div>
+                        <a href="https://stadiomultiversity-my.sharepoint.com/:b:/g/personal/24420409_stadio_ac_za/Ea5UnIbsXUBMrvUi2hHMHewBp58devGqcqNsq8IR6f5oUQ?e=gBY1pv" class="btn-transparent px-4 py-2 rounded-full text-pink-500 text-sm font-medium inline-block">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="Bakery.jpg" alt="Project 2" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Bakery Operations Improvement Case Study</h3>
+                        <p class="text-gray-600 mb-4">Helped a small bakery reduce ingredient stockouts and streamline order tracking by building a lightweight management system. Reduced stockouts and late orders by 70% (Hypothetical improvement)</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-3 py-1 bg-pink-100 text-pink-600 rounded-full">Trello</span>
+                            <span class="text-xs px-3 py-1 bg-pink-100 text-pink-600 rounded-full">Draw.io</span>
+                            <span class="text-xs px-3 py-1 bg-pink-100 text-pink-600 rounded-full">Google Docs</span>
+                        </div>
+                        <a href="case-study.html" class="btn-transparent px-4 py-2 rounded-full text-pink-500 text-sm font-medium inline-block">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="Fitness Studio.jpg" alt="Project 3" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Digital Project Planning Simulation</h3>
+                        <p class="text-gray-600 mb-4">This project simulates how I would use Jira to plan and manage a digital improvement initiative for a small fitness studio. The goal was to implement a feedback collection and response system that would help the gym identify service gaps, track performance, and boost client satisfaction.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-3 py-1 bg-pink-100 text-pink-600 rounded-full">Jira</span>
+                            <span class="text-xs px-3 py-1 bg-pink-100 text-pink-600 rounded-full">Draw.io</span>
+                            <span class="text-xs px-3 py-1 bg-pink-100 text-pink-600 rounded-full">Google Docs</span>
+                        </div>
+                        <a href="Gym- Case-Study.html" class="btn-transparent px-4 py-2 rounded-full text-pink-500 text-sm font-medium inline-block">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="bg-gradient-to-r from-pink-400 to-pink-500 px-8 py-3 rounded-full text-white font-medium inline-flex items-center shadow-lg hover:shadow-xl transition-all duration-300">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-gradient">Skills</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-pink-400 to-pink-200 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Skill 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-bar text-4xl text-pink-500"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Jira</h3>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-pink-400 to-pink-500 h-2 rounded-full" style="width: 20%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-4xl text-pink-500"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Erp Tools</h3>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-pink-400 to-pink-500 h-2 rounded-full" style="width: 40%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-users-cog text-4xl text-pink-500"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">CRM Systems</h3>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-pink-400 to-pink-500 h-2 rounded-full" style="width: 10%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill 4 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-project-diagram text-4xl text-pink-500"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Process Mapping</h3>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-pink-400 to-pink-500 h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="flex flex-col items-center">
+                    <div class="w-24 h-24 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-table text-4xl text-pink-500"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">SQL</h3>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-pink-400 to-pink-500 h-2 rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Tools-->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold mb-6 text-center">My <span class="text-gradient">Tools</span></h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-file-excel text-4xl text-pink-500"></i>
+                        </div>
+                        <p class="text-sm">Power BI</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-network-wired text-4xl text-pink-400"></i>
+                        </div>
+                        <p class="text-sm">Draw.io</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                            <i class="fab fa-trello text-4xl text-pink-500"></i>
+                        </div>
+                        <p class="text-sm">Trello</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-server text-4xl text-pink-400"></i>
+                        </div>
+                        <p class="text-sm">Odoo</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-chalkboard text-4xl text-pink-500"></i>
+                        </div>
+                        <p class="text-sm">Google Slides/Docs/Sheets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gradient-to-b from-pink-50 to-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="text-gradient">Touch</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-pink-400 to-pink-200 mx-auto rounded-full"></div>
+            </div>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-6">Let's Connect!</h3>
+                    <p class="text-gray-600 mb-8 max-w-md">I'm open to internship opportunities and collaborations in operations, Information systems, and digital business solutions.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-pink-100 text-pink-500 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Email</h4>
+                                <p class="text-gray-600">ipelengsithole5@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-pink-100 text-pink-500 mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Phone</h4>
+                                <p class="text-gray-600">+27 67 888 3896</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-pink-100 text-pink-500 mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Location</h4>
+                                <p class="text-gray-600">South Africa, Gauteng</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="http://www.linkedin.com/in/ipeleng-sithole-32a239254" class="w-10 h-10 rounded-full flex items-center justify-center btn-transparent text-pink-500"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+  <form id="contact-form" action="https://formspree.io/f/mnnvyqgb" method="POST">
+
+    <div>
+      <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+      <input type="text" id="name" name="name" required
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent">
+    </div>
+
+    <div>
+      <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+      <input type="email" id="email" name="email" required
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent">
+    </div>
+
+    <div>
+      <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+      <input type="text" id="subject" name="subject"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent">
+    </div>
+
+    <div>
+      <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+      <textarea id="message" name="message" rows="5" required
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent"></textarea>
+    </div>
+
+    <button type="submit"
+      class="bg-gradient-to-r from-pink-400 to-pink-500 px-6 py-3 rounded-full text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 w-full">
+      Send Message
+    </button>
+  </form>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-10 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold">
+                        <span class="text-gradient">Portfolio</span>
+                    </div>
+                    <p class="text-gray-600 mt-2">© 2023 All Rights Reserved</p>
+                </div>
+                <div>
+                    <nav class="flex space-x-6">
+                        <a href="#home" class="text-gray-600 hover:text-pink-500">Home</a>
+                        <a href="#about" class="text-gray-600 hover:text-pink-500">About</a>
+                        <a href="#projects" class="text-gray-600 hover:text-pink-500">Projects</a>
+                        <a href="#contact" class="text-gray-600 hover:text-pink-500">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-pink-500 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+    // Back to Top Button
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove('hidden');
+        } else {
+            backToTopButton.classList.add('hidden');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Scroll Animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const fadeInOnScroll = () => {
+        fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (elementTop < windowHeight - 100) {
+                element.style.opacity = '1';
+            }
+        });
+    };
+
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('load', fadeInOnScroll);
+
+    // Formspree Contact Form Submission Handler
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault(); // Stop the default form submit
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                alert("Thank you! Your message has been sent.");
+                form.reset();
+            } else {
+                alert("Oops! There was a problem sending your message.");
+            }
+        }).catch(error => {
+            alert("Something went wrong. Please try again later.");
+        });
+    });
+</script>
+
+</body>
+</html>
