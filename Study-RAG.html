@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study RAG | Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 px-6 py-10 max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold mb-4 text-pink-500">Study RAG: AI Study Partner</h1>
+    <p class="text-lg mb-6">A small web app that turns your own study materials into a study partner. Upload PDFs, Word documents or text notes, then ask questions and get answers with citations, take multiple-choice quizzes, or flip through flashcards, all generated from your own material.</p>
+
+    <img src="study-rag-demo.png" alt="Study RAG screenshot" class="rounded-xl shadow-lg mb-6 w-full">
+
+    <h2 class="text-2xl font-semibold text-pink-400 mt-10 mb-2">Features</h2>
+    <ul class="list-disc ml-6 mb-6">
+        <li><strong>Ask with citations:</strong> answers use only the uploaded material, with numbered sources pointing to the file and page or heading.</li>
+        <li><strong>Quiz mode:</strong> multiple-choice questions with instant feedback, explanations and a running score.</li>
+        <li><strong>Flashcards:</strong> flip cards generated from the material, with an optional topic focus.</li>
+        <li><strong>Mixed formats:</strong> PDF, Word (.docx), .txt and .md.</li>
+        <li><strong>Saved index:</strong> upload once and the index is stored on disk for next time.</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold text-pink-400 mt-10 mb-2">How it works</h2>
+    <ol class="list-decimal ml-6 mb-6">
+        <li><strong>Ingest:</strong> extract text from each file and split it into chunks of about 180 words with a 30-word overlap.</li>
+        <li><strong>Embed:</strong> convert each chunk to a vector with the local all-MiniLM-L6-v2 model (sentence-transformers).</li>
+        <li><strong>Retrieve:</strong> embed the question and select the 6 chunks with the highest cosine similarity using NumPy.</li>
+        <li><strong>Generate:</strong> pass the chunks to Google Gemini as numbered sources, with a prompt that keeps the answer grounded and cited.</li>
+    </ol>
+
+    <h2 class="text-2xl font-semibold text-pink-400 mt-10 mb-2">What I learned</h2>
+    <ul class="list-disc ml-6 mb-6">
+        <li>How RAG fits together end to end: chunking, embeddings, similarity search and prompt design.</li>
+        <li>Handling real API failures (404, 503 and 429) with readable error messages and automatic retries.</li>
+        <li>Keeping secrets in environment variables and personal data out of version control.</li>
+        <li>Debugging methodically, such as finding a stale server still answering on the same port.</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold text-pink-400 mt-10 mb-2">Tech Stack</h2>
+    <p class="mb-6">Python, Flask, pypdf, python-docx, sentence-transformers, NumPy, Google Gemini API, HTML/CSS/JavaScript</p>
+
+    <p class="mb-6"><a href="https://github.com/Selina2-ctrl/Study-RAG" target="_blank" rel="noopener" class="text-pink-500 hover:underline">View the code on GitHub</a></p>
+
+    <a href="index.html#projects" class="text-pink-500 hover:underline">&larr; Back to Portfolio</a>
+</body>
+</html>
